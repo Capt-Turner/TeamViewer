@@ -9,6 +9,8 @@ const Intern=require('./lib/Intern');
 const DIST_DIR=path.resolve(__dirname,'dist');
 const distPath=path.join(DIST_DIR,'teamview.html');
 const render=require('./src/pagetemplate.js');
+const internal = require('stream');
+const { builtinModules } = require('module');
 
 const team=[];
 const idAry=[];
@@ -49,9 +51,40 @@ function createTeam(){
             idAry.push(answers.managerId);
             addMember();
         });
-    }
+    };
 
     function addMember(){
+        inquirer.prompt([
+            {
+                type:'list',
+                name:'roleChoice',
+                message:'What type of member are you adding?',
+                choices:['Engineer','Intern','My team is finished'],
+            },
+        ])
+        .then((userChoice)=>{
+            switch (userChoice.roleChoice){
+                case 'Engineer':
+                    engineer();
+                    break;
+                case 'Intern':
+                    intern();
+                    break;
+                default:
+                    build();
+            }
+        });
+    };
+
+    function engineer(){
+        
+    };
+
+    function intern(){
+
+    };
+
+    function build(){
         
     }
 }
