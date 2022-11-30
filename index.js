@@ -77,14 +77,81 @@ function createTeam(){
     };
 
     function engineer(){
-        
+        inquirer.prompt([
+            {
+                type:'input',
+                name:'engiName',
+                message:'What is the name of the engineer?',
+            },
+            {
+                type:'input',
+                name:'engiId',
+                message:"What is the engineer's id number?",
+            },
+            {
+                type:'input',
+                name:'engiEmail',
+                message:"What is the engineer's email address?",
+            },
+            {
+                type:'input',
+                name:'engiGithub',
+                message:"What is the engineer's GitHub address?",
+            },
+        ])
+        .then((answers)=>{
+            const engi=new Engineer(
+                answers.engiName,
+                answers.engiId,
+                answers.engiEmail,
+                answers.engiGithub
+            );
+            team.push(engi);
+            idAry.push(answers.engiId);
+            addMember();
+        });
     };
 
     function intern(){
-
+        inquirer.prompt([
+            {
+                type:'input',
+                name:'internName',
+                message:'What is the name of the intern?',
+            },
+            {
+                type:'input',
+                name:'internId',
+                message:"what is the intern's id number?",
+            },
+            {
+                type:'input',
+                name:'internEmail',
+                message:"What is the intern's email address?",
+            },
+            {
+                type:'input',
+                name:'internSchool',
+                message:'What school is the intern attending?',
+            },
+        ])
+        .then((answers)=>{
+            const intern=new Intern(
+                answers.internName,
+                answers.internId,
+                answers.internEmail,
+                answers.internSchool
+            );
+            team.push(intern);
+            idAry.push(answers.internId);
+            addMember();
+        })
     };
 
     function build(){
-        
+        fs.writeFileSync(distPath,render(team),'utf-8');
+        createManager();
     }
 }
+
+createTeam();
