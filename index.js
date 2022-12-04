@@ -1,7 +1,6 @@
 const inquirer=require('inquirer');
 const path=require('path');
 const fs=require('fs');
-const template=require('./src/pagetemplate.html');
 
 const Manager=require('./lib/Manager');
 const Engineer=require('./lib/Engineer');
@@ -9,6 +8,7 @@ const Intern=require('./lib/Intern');
 
 const DIST_DIR=path.resolve(__dirname,'dist');
 const distPath=path.join(DIST_DIR,'teamview.html');
+const render=require('./src/template.js');
 
 const team=[];
 const idAry=[];
@@ -147,11 +147,10 @@ function createTeam(){
     };
 
     function build(){
-        team.forEach(employee=>{
-            
-        });
-        
-        fs.writeFileSync(distPath,HTMLwrite,'utf-8');
+        if(!fs.existsSynce(DIST_DIR)){
+            fs.mkdirSync(DIST_DIR);
+        };
+        fs.writeFileSync(distPath,render(team),'utf-8');
         createManager();
     }
 }
