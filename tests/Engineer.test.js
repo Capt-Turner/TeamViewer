@@ -7,7 +7,7 @@ test('Can assign a GitHub account',()=>{
 });
 
 test('getRole() should return \"Engineer\"',()=>{
-    const role="Enginner";
+    const role="Engineer";
     const e=new Engineer('Jack',1,'Jack@test.com','Jack@gihub.com');
     expect(e.getRole()).toBe(role);
 });

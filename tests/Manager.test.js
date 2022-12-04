@@ -1,5 +1,4 @@
 const Manager=require('../lib/Manager');
-const Employee=require('../lib/Employee');
 
 test('Can assign an office number',()=>{
     const office=123;

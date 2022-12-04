@@ -69,6 +69,7 @@ function createTeam(){
                     intern();
                     break;
                 default:
+                    console.log(team);
                     build();
             }
         });
@@ -147,12 +148,12 @@ function createTeam(){
     };
 
     function build(){
-        if(!fs.existsSynce(DIST_DIR)){
+        if(!fs.existsSync(DIST_DIR)){
             fs.mkdirSync(DIST_DIR);
         };
         fs.writeFileSync(distPath,render(team),'utf-8');
-        createManager();
-    }
+    }   
+    createManager();
 }
 
 createTeam();
