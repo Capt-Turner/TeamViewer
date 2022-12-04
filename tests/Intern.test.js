@@ -8,6 +8,6 @@ test('Can assign a school to Intern',()=>{
 
 test('getRole() should return \"Intern\"',()=>{
     const role="Intern";
-    const e=new Intern('Jack',1,'Jack@test.com',role);
+    const e=new Intern('Jack',1,'Jack@test.com');
     expect(e.getRole()).toBe(role);
 });
