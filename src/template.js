@@ -1,4 +1,8 @@
 const employee = require('../lib/Employee');
+const engineer =  require('../lib/Engineer');
+const manager = require('../lib/Manager');
+const intern = require('../lib/Intern');
+
 
 function render(array){
     let team=array || [];
@@ -6,29 +10,31 @@ function render(array){
     console.log(team);
     team.forEach(element=>{
         let prop='';
-        const type=this.getRole();
+        const type=element.getRole();
         switch(type){
             case 'Manager':
-                prop=`<li class="list-group-item">Office Number: ${employee.getOfficeNumber()}</li>`;
+                prop=`<li class="list-group-item">Office Number: ${element.getOfficeNumber()}</li>`;
                 break;
             case 'Intern':
-                prop=`<li class="list-group-item">School: ${employee.getSchool()}</li>`;
+                prop=`<li class="list-group-item">School: ${element.getSchool()}</li>`;
                 break;
             case 'Engineer':
-                prop=`<li class="list-group-item">GitHub Account: ${employee.getGitHub()}</li>`;
+                prop=`<li class="list-group-item">GitHub Account: ${element.getGithub()}</li>`;
                 break;
             default:
                 break;
         }
         const card=
-            `<div class="card">
-                <div class="card-header">${employee.getName()}</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Role: ${employee.getRole()}</li>
-                    <li class="list-group-item">ID: ${employee.getId()}</li>
-                    <li class="list-group-item">Email: ${employee.getEmail()}}</li>
-                    ${prop}
-                </ul>
+            `<div class="col-4">
+                <div class="card border-dark">
+                    <div class="card-header">${element.getName()}</div>
+                    <ul class="list-group list-group-flush text-dark">
+                        <li class="list-group-item">Role: ${element.getRole()}</li>
+                        <li class="list-group-item">ID: ${element.getId()}</li>
+                        <li class="list-group-item">Email: ${element.getEmail()}</li>
+                        ${prop}
+                    </ul>
+                </div>
             </div>`;
             cards.push(card);
     });
@@ -47,17 +53,25 @@ function render(array){
     </head>
 
     <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 mb-3>
-                    <h1 class="text-center">My Team</h1>
+        <article>
+            <header>
+                <div class="container text-center bg-secondary">
+                    <div class="row">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4">
+                            <h1 class="text-info">My Team</h1>
+                        </div>
+                        <div class="col-4">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="container-fluid">
+            </header>
+        </article>
+        
+        <div class="container-fluid text-center">
             <div class="row">
-                <div class="col-4>
-                    ${cardString}`
+                ${cardString}`
     
     return HTMLstring;
 };

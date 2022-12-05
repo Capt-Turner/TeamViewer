@@ -71,6 +71,7 @@ function createTeam(){
                 default:
                     console.log(team);
                     build();
+                    break;
             }
         });
     };
