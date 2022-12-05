@@ -4,7 +4,7 @@ Welcome to my Team Viewer app. This is a command-line application where you, the
 
 ## How's it Work?
 
-Here is a short [video walkthrough]() to help you get started. If you need more help, refer back to this section for some guidelines.
+Here is a short [video walkthrough](https://drive.google.com/file/d/1Gn1wu7__eN_P7VTV3hHG6kzTF_WYFPLH/view) to help you get started. If you need more help, refer back to this section for some guidelines.
 
 > Step 1: Download this repo and place it in a folder of your choice
 >
